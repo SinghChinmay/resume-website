@@ -71,6 +71,79 @@ footer,
     box-sizing: border-box;
 }
 
+/* Hide native cursor — use custom cursor div instead */
+body {
+    cursor: none;
+}
+
+/* Default custom cursor — cursor.png rotated 20° clockwise */
+#default-cursor {
+    position: fixed;
+    pointer-events: none;
+    z-index: 99998;
+    width: 75px;
+    height: 75px;
+    background: url('cursor.png') center / contain no-repeat;
+    transform: translate(-50%, -50%) rotate(15deg);
+    image-rendering: auto;
+}
+
+/* Custom bongocat cursor element — shown on interactive hover, 4x size */
+#bongocat-cursor {
+    position: fixed;
+    pointer-events: none;
+    z-index: 99999;
+    width: 192px;
+    height: 192px;
+    background: url('bongocat.gif') center / contain no-repeat;
+    transform: translate(-50%, -50%);
+    /* Remove white background from GIF */
+    mix-blend-mode: multiply;
+    filter: brightness(1.15) contrast(1.05);
+    display: none;
+    image-rendering: auto;
+}
+
+/* Rainbow color overlay on top of the GIF — neon in dark, pastel in light */
+#bongocat-cursor::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, #ff00ff, #ff0066, #ff3300, #ff9900, #ffff00, #33ff00, #00ffcc, #0066ff, #6600ff, #ff00ff);
+    mix-blend-mode: color;
+    opacity: 0;
+    pointer-events: none;
+    border-radius: inherit;
+}
+
+body[data-theme='light'] #bongocat-cursor::after {
+    background: linear-gradient(90deg, #ff9ce8, #ffb3ba, #ffd6a5, #fdffb6, #caffbf, #9bf6ff, #a0c4ff, #bdb2ff, #ffc6ff, #ff9ce8);
+}
+
+#bongocat-cursor.rainbow::after {
+    opacity: 0.7;
+    animation: overlay-rainbow 2s linear infinite;
+}
+
+@keyframes overlay-rainbow {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+/* Hide all native cursors when custom cursor active */
+body.custom-cursor-active * {
+    cursor: none !important;
+}
+
+/* Rainbow hue-rotate when hovering interactive */
+#bongocat-cursor.rainbow {
+    animation: none;
+}
+
 body {
     margin: 0;
     font-family: 'Nunito', sans-serif;
@@ -265,6 +338,7 @@ header.hero::after {
     overflow: visible;
     border: 3px solid rgba(255, 255, 255, 0.38);
     box-shadow: inset 0 -10px 25px rgba(19, 10, 32, 0.45);
+    transition: filter 0.4s ease; /* smooth wake-up */
 }
 
 .cat-face::after {
@@ -321,6 +395,7 @@ header.hero::after {
     align-items: flex-start;
     transform-origin: 50% 90%;
     animation: blink 4.8s infinite;
+    transition: transform 0.4s ease; /* smooth wake-up */
 }
 
 .cat-eye.left {
@@ -1304,6 +1379,18 @@ body[data-theme='light'] .cat-mouth {
     border-bottom: 4px solid rgba(116, 96, 166, 0.6);
 }
 
+body[data-theme='light'] .cat-avatar.angry .cat-mouth {
+    border-top: 4px solid rgba(200, 60, 60, 0.8);
+    border-bottom: none;
+}
+
+body[data-theme='light'] .cat-avatar.angry .cat-eye {
+    background: radial-gradient(circle at 50% 55%, #cc3333 0%, #661111 75%);
+    box-shadow:
+        0 0 0 3px rgba(200, 60, 60, 0.5),
+        0 10px 18px rgba(150, 30, 30, 0.4);
+}
+
 body[data-theme='light'] .cat-whisker {
     background: linear-gradient(90deg, rgba(125, 113, 176, 0), rgba(125, 113, 176, 0.65), rgba(125, 113, 176, 0));
 }
@@ -1327,6 +1414,11 @@ body[data-theme='light'] .section-card {
 
 body[data-theme='light'] .section-card::before {
     background: radial-gradient(circle, rgba(255, 190, 231, 0.26), transparent 70%);
+}
+
+body[data-theme='light'] .section-card h2.section-title::after,
+body[data-theme='light'] .section-card.collapsed h2.section-title::after {
+    text-shadow: 0 0 10px rgba(255, 127, 201, 0.4);
 }
 
 body[data-theme='light'] .pill-heading {
@@ -1518,4 +1610,262 @@ body[data-theme='light'] .contact-icon::after {
 
 body[data-theme='light'] .contact-grid a.contact-item {
     text-shadow: 0 0 12px rgba(255, 127, 201, 0.4);
+}
+
+/* =============================================
+   INTERACTIVE FEATURES
+   ============================================= */
+
+/* --- Scroll-triggered fade-in --- */
+.fade-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+        opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.fade-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Cat idle/sleep states — eased over 3s for a gentle doze --- */
+.cat-avatar.sleeping .cat-eye {
+    animation: none;
+    transform: scaleY(0.08);
+    transition: transform 3s ease-in-out;
+}
+
+.cat-avatar.sleeping .cat-sparkle {
+    opacity: 0;
+    transition: opacity 3s ease-in-out;
+}
+
+.cat-avatar.sleeping .cat-face {
+    filter: brightness(0.7) saturate(0.5);
+    transition: filter 3s ease-in-out;
+}
+
+/* Zzz bubble — only visible when sleeping, tripled size */
+.zzz-bubble {
+    position: absolute;
+    top: -40px;
+    right: -20px;
+    font-size: 54px;
+    font-weight: 700;
+    color: var(--accent);
+    text-shadow: 0 0 24px var(--accent);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 10;
+    line-height: 1;
+    transition: opacity 3s ease-in-out;
+    /* No animation by default — only animate when sleeping */
+}
+
+.cat-avatar.sleeping .zzz-bubble {
+    opacity: 1;
+    animation: zzz-float 2s ease-in-out infinite;
+}
+
+@keyframes zzz-float {
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translateY(-12px) scale(1.2);
+        opacity: 1;
+    }
+}
+
+/* Angry cat */
+.cat-avatar.angry .cat-face {
+    filter: saturate(1.6) hue-rotate(-20deg) brightness(0.85);
+    transition: filter 0.3s ease;
+}
+
+.cat-avatar.angry .cat-blush {
+    background: radial-gradient(circle, rgba(255, 50, 50, 0.7), rgba(255, 50, 50, 0));
+    transition: background 0.3s ease;
+}
+
+.cat-avatar.angry .cat-eye {
+    animation: none;
+    transform: scaleY(1) scaleX(0.85);
+    background: radial-gradient(circle at 50% 55%, #ff2222 0%, #880000 75%);
+    box-shadow:
+        0 0 0 3px rgba(255, 0, 0, 0.5),
+        0 10px 18px rgba(200, 0, 0, 0.45);
+    transition: all 0.3s ease;
+}
+
+.cat-avatar.angry .cat-mouth {
+    width: 30%;
+    border-bottom: none;
+    border-top: 4px solid rgba(255, 50, 50, 0.8);
+    border-radius: 50% 50% 0 0;
+    top: 66%;
+}
+
+/* Cat click reaction */
+.cat-avatar.clicked .cat-eye {
+    animation: none;
+    transform: scaleY(0.12);
+    transition: transform 0.15s ease;
+}
+
+.cat-avatar.clicked .cat-face {
+    transform: scale(0.95);
+    transition: transform 0.15s ease;
+}
+
+.cat-avatar .click-nyaa {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Fredoka', cursive;
+    font-size: 22px;
+    color: var(--accent);
+    text-shadow: 0 0 20px var(--accent);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    z-index: 10;
+    white-space: nowrap;
+}
+
+.cat-avatar.clicked .click-nyaa {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-10px);
+}
+
+/* --- Rainbow hover trails on links --- */
+@keyframes rainbow-shift {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+    25% {
+        filter: hue-rotate(90deg);
+    }
+    50% {
+        filter: hue-rotate(180deg);
+    }
+    75% {
+        filter: hue-rotate(270deg);
+    }
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+.rainbow-link {
+    display: inline-block;
+    position: relative;
+    transition: filter 0.3s ease;
+}
+
+.rainbow-link:hover {
+    animation: rainbow-shift 1.5s linear infinite;
+}
+
+/* Rainbow trail on all <a> except toggle label */
+a:not(.switch *):not(label):hover,
+.contact-grid a:hover,
+.chip:hover {
+    animation: rainbow-shift 1.5s linear infinite;
+}
+
+/* Also apply to contact icons on hover */
+.contact-item:hover .contact-icon {
+    animation:
+        rainbow-shift 1.5s linear infinite,
+        gentle-bounce 3s ease-in-out infinite;
+    animation-composition: replace;
+}
+
+/* --- Sparkle particle cursor trail --- */
+.sparkle-particle {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    font-size: 14px;
+    animation: sparkle-pop 0.8s ease-out forwards;
+}
+
+@keyframes sparkle-pop {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--dx, -20px), var(--dy, -30px)) scale(0) rotate(180deg);
+    }
+}
+
+/* --- Drag-to-reveal theme toggle slider handle --- */
+.slider.dragging {
+    transition: none !important;
+}
+
+.slider.dragging .sun-moon {
+    transition: none !important;
+}
+
+/* Progress bar for drag reveal */
+.theme-drag-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 34px;
+    pointer-events: none;
+    transition: width 0.05s linear;
+    z-index: -1;
+}
+
+/* --- Collapsible sections --- */
+.section-card h2.section-title {
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.3s ease;
+}
+
+.section-card h2.section-title::after {
+    content: '=^._.^= ▼';
+    font-size: 16px;
+    color: var(--accent);
+    text-shadow: 0 0 12px rgba(255, 91, 216, 0.4);
+    transform: rotate(0deg);
+    transition: transform 0.4s ease;
+    display: inline-block;
+}
+
+.section-card.collapsed h2.section-title::after {
+    content: '=^._.^= ▶';
+    transform: rotate(0deg);
+}
+
+.section-card .section-body {
+    overflow: hidden;
+    max-height: 8000px;
+    opacity: 1;
+    transition:
+        max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.4s ease,
+        margin-top 0.4s ease;
+}
+
+.section-card.collapsed .section-body {
+    max-height: 0;
+    opacity: 0;
+    margin-top: 0;
 }
