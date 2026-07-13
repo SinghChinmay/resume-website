@@ -203,7 +203,7 @@
                             </tr>
                             <tr>
                                 <td>Infrastructure</td>
-                                <td>Windows Server, IIS, RAID, network topology, load balancing, DDoS protection, CDN (300+ servers), ngrok tunneling</td>
+                                <td>Windows Server, IIS, RAID, network topology, load balancing, DDoS protection, CDN (300+ servers), NGINX, ngrok tunneling</td>
                             </tr>
                             <tr>
                                 <td>Datastores</td>
@@ -216,13 +216,13 @@
                             <tr>
                                 <td>Security</td>
                                 <td>
-                                    Network penetration testing, WiFi auditing (aircrack-ng suite), GPU-accelerated hash cracking, OAuth, OPA, JWT, AES-256-GCM, Azure Key Vault, HMAC verification,
-                                    brute-force protection
+                                    Network penetration testing, WiFi auditing (aircrack-ng suite), GPU-accelerated hash cracking, Wireshark, packet analysis, Kali Linux toolchain, OAuth, OPA, JWT,
+                                    AES-256-GCM, Azure Key Vault, HMAC verification, brute-force protection
                                 </td>
                             </tr>
                             <tr>
                                 <td>Monitoring</td>
-                                <td>Sentry, Prometheus, Winston, Socket.IO, SSE</td>
+                                <td>Sentry, Prometheus, Winston, Socket.IO, SSE, CPU profiling (flame graphs, hot-path analysis)</td>
                             </tr>
                             <tr>
                                 <td>Integrations</td>
@@ -311,7 +311,7 @@
                             <p class="tagline">Microservices platform with policy enforcement, performance tuning, and secure delivery.</p>
                             <ul>
                                 <li>OPA authorization policies + Okta identity flows enforcing least-privilege boundaries</li>
-                                <li>eBPF performance profiling + Istio routing tuning (reduced latency in critical paths)</li>
+                                <li>Node.js CPU profiling (flame graphs, hot-path analysis) and eBPF performance profiling + Istio routing tuning (reduced latency in critical paths)</li>
                                 <li>GitHub Actions CI/CD pipelines (lint, test matrix, security scans, deploy gates)</li>
                                 <li>Integration + E2E tests reducing regression incidents</li>
                                 <li>Led code reviews and authored architecture documentation</li>
@@ -367,10 +367,12 @@
                             </div>
                             <p class="tagline">Managed 300+ server global CDN infrastructure.</p>
                             <ul>
-                                <li>Node.js log ingestion and error handling pipelines</li>
-                                <li>Load balancer administration and multi-bitrate streaming (Wowza)</li>
-                                <li>HTTP header hardening improving security posture</li>
+                                <li>3-tier CA chain management: root, intermediate, and server certificates with chain-of-trust verification across the fleet</li>
+                                <li>NGINX reverse proxy configuration and load balancer administration</li>
+                                <li>TLS/SSL certificate lifecycle management and renewal automation</li>
+                                <li>Multi-bitrate streaming (Wowza) and Node.js log ingestion pipelines</li>
                                 <li>Automated reporting and global sync/purge workflows</li>
+                                <li>HTTP header hardening improving security posture</li>
                             </ul>
                         </article>
 
@@ -568,7 +570,7 @@
 
             <footer>
                 <div class="footer-cat">ฅ^•ﻌ•^ฅ</div>
-                <p>Updated on: 2026-07-02 · Crafted with kawaii code & extra sparkles ☆</p>
+                <p>Updated on: 2026-07-13 · Crafted with kawaii code & extra sparkles ☆</p>
             </footer>
         </main>
     </body>
