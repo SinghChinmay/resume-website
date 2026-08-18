@@ -55,6 +55,10 @@
                         </div>
                     </div>
                 </label>
+                <div class="lang-toggle" role="group" aria-label="Language / 言語切替">
+                    <button class="lang-btn active" data-lang="en" type="button">EN</button>
+                    <button class="lang-btn" data-lang="ja" type="button">日本語</button>
+                </div>
                 <div class="hero-grid">
                     <div class="cat-avatar" aria-hidden="true">
                         <div class="cat-orbit"></div>
@@ -77,7 +81,7 @@
                         <div class="zzz-bubble">💤</div>
                         <div class="click-nyaa">Nyaa~☆</div>
                     </div>
-                    <div>
+                    <div class="lang lang-en">
                         <h1>Chinmay Singh</h1>
                         <p class="subtitle">Lead / Senior Full Stack &amp; Platform Engineer</p>
                         <div class="contact-grid">
@@ -102,9 +106,35 @@
                             <span class="chip">LINE SaaS</span>
                         </div>
                     </div>
+                    <div class="lang lang-ja" hidden>
+                        <h1>チンメイ・シン</h1>
+                        <p class="subtitle">リード／シニアフルスタック・プラットフォームエンジニア</p>
+                        <div class="contact-grid">
+                            <div class="contact-item">
+                                <span class="contact-icon location-icon" aria-hidden="true"></span>
+                                <span>インド 首都圏（NCR）</span>
+                            </div>
+                            <a href="https://linkedin.com/in/chinmay-singh" target="_blank" rel="noopener" class="contact-item rainbow-link">
+                                <span class="contact-icon linkedin-icon" aria-hidden="true"></span>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="https://github.com/singhchinmay" target="_blank" rel="noopener" class="contact-item rainbow-link">
+                                <span class="contact-icon github-icon" aria-hidden="true"></span>
+                                <span>GitHub</span>
+                            </a>
+                        </div>
+                        <div class="chip-row">
+                            <span class="chip">15年以上</span>
+                            <span class="chip">ソロフルスタック</span>
+                            <span class="chip">クラウドネイティブ</span>
+                            <span class="chip">マイクロサービス</span>
+                            <span class="chip">LINE SaaS</span>
+                        </div>
+                    </div>
                 </div>
             </header>
 
+            <div class="lang lang-en">
             <section class="fade-section">
                 <div class="section-card">
                     <h2 class="section-title">TL;DR (Recruiter Snapshot)</h2>
@@ -565,12 +595,430 @@
                     </p>
                 </div>
             </section>
+            </div>
+
+            <div class="lang lang-ja" hidden>
+            <section class="fade-section">
+                <div class="section-card">
+                    <h2 class="section-title">職務要約（リクルーター向けスナップショット）</h2>
+                    <p>
+                        独学で身につけたリード／シニアフルスタック・プラットフォームエンジニア。プログラミング歴15年以上（実務経験10年以上）。現在はMiraicのソロエンジニアとして、LINE統合型SaaSプラットフォーム全体をバックエンドアーキテクチャからフロントエンド開発、QA、UAT、本番運用（DevOps）まで一人で担っており、日本の美術館・映画館・中小企業を顧客に持つ。
+                    </p>
+                    <p>
+                        これまでにSony（eBPFパフォーマンスチューニング）、QuickBooks統合財務同期（3か月でゼロから構築）、300台規模のグローバルCDN基盤など、本番システムを複数納品してきた。TypeScript、Go、Rust、Python、PHPと多言語に対応し、クラウドネイティブ分野（AWS、Kubernetes/K3s、Docker）に深い知見を持つ。独自のモノレポ・プラグインフレームワークを構築し、オープンソースの開発ツールやデスクトップアプリの公開実績があり、セキュリティ研究の経歴（公開された倫理的ハッキングと実ネットワーク監査の経験）も兼ね備える。
+                    </p>
+                </div>
+            </section>
+
+            <section class="fade-section">
+                <div class="section-card">
+                    <h2 class="section-title">生い立ち</h2>
+                    <p>
+                        物心ついた頃からコンピュータに触れ、2歳でDOSを使い始めた。学校では、こっそりトレントをキューに積みつつ、ネットカフェのオーナーの修理を手伝うような少年だった。高校ではオンラインで稼ぎ始めた。流行の動画のスクリーンショットをアップロードするBloggerサイト（1080hdpicture.blogspot.com）を立ち上げ、AdSense収益を大きく伸ばした。その後、VPS上で本格的なWordPress映画サイトを構築し、PHP、ホスティング、トラフィック収益化を学んだ。
+                    </p>
+                    <p>
+                        大学ではLinux、ネットワーキング、セキュリティに深くのめり込んだ。Kali Linuxを導入し、アクセス料金が高かった時代にWiFi監査用の独自シェルスクリプトを書き、R9 290Xを使ったGPUクラッキングでWPAハンドシェイクを解析した。卒業研究の「倫理的ハッキング（全自動Aircrack-ng）」は、自分の個人ツールキットを製品化したものだった。大学ネットワーク全体をマッピングし、CCTVカメラからCiscoスイッチまで全デバイスを特定、10,000以上のエンドポイントのデフォルト認証情報と脆弱性を文書化した。この研究は注目され、キャンパスでのWiFiアクセス実証のYouTube動画も存在する。
+                    </p>
+                    <p>
+                        大学時代はFreelancer.comでフリーランスとして活動したが、本格的な収入源は複数のWordPress・Bloggerサイトを持つクライアントだった。ユーザーの行動パターンに基づいて広告配置を最適化するJavaScriptインタラクションエンジンを構築し、2年間でクライアントに30万ドル以上の収益をもたらした。この経験でJavaScriptとコードのビジネス面を深く学んだ。
+                    </p>
+                    <p>
+                        キャリアは2016年に正式に始まったが、10代の頃からすでに有償の本番ソフトウェアをリリースしており、それはAIコーディング支援ツールが登場するずっと前のことだ。その基盤があるからこそ、AIが生成したコードを監査できるのであって、AIに取って代わられることはない。
+                    </p>
+                </div>
+            </section>
+
+            <section class="fade-section">
+                <div class="section-card">
+                    <h2 class="section-title">現在の状況</h2>
+                    <p>
+                        Miraicの唯一のエンジニアとして、バックエンドのマイクロサービス、フロントエンドのSPA、データベース設計、DevOpsパイプライン、QA、日本語クライアントとのUAT、本番障害対応まで、プロダクトの全責任を担っている。システムをエンドツーエンドで設計し、すべてを文書化し、夜中の3時に何かが壊れてもデバッグできるコードを書く。
+                    </p>
+                    <p>
+                        AIコーディングが主流になる前から本番システムをリリースしてきた。バイブコーディングも、GPTに思考を委ねることもない。役割が合わなければすぐに次へ進み、本当にインパクトを出せる場所に長年の経験を集中させる。
+                    </p>
+                </div>
+            </section>
+
+            <section class="fade-section">
+                <div class="section-card">
+                    <h2 class="section-title">強み</h2>
+                    <ul>
+                        <li><strong>エンドツーエンドのオーナーシップ:</strong> 設計 → アーキテクチャ → 実装 → QA → UAT → DevOps → 本番サポート</li>
+                        <li><strong>システム設計:</strong> マイクロサービス、モノリス統合、イベント駆動、マルチテナント、モノレポ（Nx、Turborepo）</li>
+                        <li><strong>パフォーマンスと信頼性:</strong> 非同期パイプライン、メッセージング（SQS/SNS、BullMQ）、キャッシュ、可観測性、eBPF</li>
+                        <li><strong>セキュリティとガバナンス:</strong> OAuth、OPAポリシー、JWT、AES-256-GCM暗号化、シークレット管理、ネットワークセキュリティ、倫理的ハッキングの経歴</li>
+                        <li><strong>開発者生産性向上:</strong> クリーンアーキテクチャ、契約ファーストAPI、テスト戦略、モノレポツール、コード生成パイプライン</li>
+                        <li><strong>リーダーシップとメンタリング:</strong> 技術指導、コードレビュー、アーキテクチャドキュメント、技術面接、異文化クライアントとの協働</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="fade-section">
+                <div class="section-card">
+                    <h2 class="section-title">技術スキル</h2>
+                    <table class="neon-table">
+                        <thead>
+                            <tr>
+                                <th>カテゴリ</th>
+                                <th>技術・スキル</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>言語</td>
+                                <td>TypeScript、JavaScript、Go、Rust、Python、PHP、SQL、Bash</td>
+                            </tr>
+                            <tr>
+                                <td>バックエンド・デスクトップ</td>
+                                <td>Node.js、NestJS、Express、Bun、Axum（Rust）、Actix-web、gRPC、REST、GraphQL、Protobuf、ts-rest、ConnectRPC、Wails、PyInstaller、Electron</td>
+                            </tr>
+                            <tr>
+                                <td>フロントエンド</td>
+                                <td>Svelte / SvelteKit、React、Next.js、Tailwind CSS、shadcn/ui、Ant Design、Chakra UI、Vite</td>
+                            </tr>
+                            <tr>
+                                <td>クラウド・DevOps</td>
+                                <td>AWS（Lambda、ECS、EC2、SQS、SNS、S3、RDS）、Docker、Kubernetes/K3s、GitHub Actions、GitLab CI、Terraform、AWS CDK、Traefik、Harbor Registry</td>
+                            </tr>
+                            <tr>
+                                <td>インフラ</td>
+                                <td>Windows Server、IIS、RAID、ネットワーク設計、負荷分散、DDoS対策、CDN（300台以上）、NGINX、ngrokトンネリング</td>
+                            </tr>
+                            <tr>
+                                <td>データストア</td>
+                                <td>PostgreSQL、MySQL、MongoDB、Redis、DynamoDB、Prisma、Sequelize、TypeORM、SeaORM、BullMQ</td>
+                            </tr>
+                            <tr>
+                                <td>アーキテクチャ</td>
+                                <td>マイクロサービス、モノリス、イベント駆動、サーバーレス、モノレポ（Nx、Turborepo、pnpm workspaces）、契約ファーストAPI、サーガパターン、DDD</td>
+                            </tr>
+                            <tr>
+                                <td>セキュリティ</td>
+                                <td>
+                                    ネットワークペネトレーションテスト、WiFi監査（aircrack-ng）、GPUアクセラレーションによるハッシュクラッキング、Wireshark、パケット解析、Kali Linuxツールチェーン、OAuth、OPA、JWT、
+                                    AES-256-GCM、Azure Key Vault、HMAC検証、ブルートフォース対策
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>モニタリング</td>
+                                <td>Sentry、Prometheus、Winston、Socket.IO、SSE、CPUプロファイリング（フレームグラフ、ホットパス解析）</td>
+                            </tr>
+                            <tr>
+                                <td>連携</td>
+                                <td>LINE Messaging API、LINE LIFF、Stripe、Square Payments、Veritrans、Razorpay、Chatwork API、Google Calendar API、QuickBooks API</td>
+                            </tr>
+                            <tr>
+                                <td>ツール</td>
+                                <td>Swagger/OpenAPI、TSOA、Jest、Mocha、Vitest、Playwright、Zod、Biome、ESLint、Prettier、Husky、semantic-release、pm2、AWS CLI</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="fade-section">
+                <div class="section-card">
+                    <h2 class="section-title">職務経歴</h2>
+                    <div class="timeline">
+                        <article class="role">
+                            <div>
+                                <h3>シニアソフトウェアエンジニア・Miraic.inc</h3>
+                                <h4>2023年8月〜現在</h4>
+                            </div>
+                            <p class="tagline">
+                                日本の文化施設（古川美術館、名古屋）、映画館チェーン、中小企業向けに、複数サービスのLINE統合型SaaSプラットフォームを、アーキテクチャからQA、UAT、本番運用（DevOps）まで一人で構築。
+                            </p>
+                            <div>
+                                <span class="pill-heading">主な実績と影響</span>
+                                <ul>
+                                    <li>Kakeru Platformをゼロから構築。認証、会員管理、シフト、決済、LINEメッセージング、通知、検索、ファイル管理を担う13のマイクロサービス。</li>
+                                    <li>古川美術館向けMonoCentralを納品。会員管理、イベント予約、クーポン・キャンペーンエンジン、Square決済、LINE LIFF連携をK3s Kubernetes上で実現。</li>
+                                    <li>X-Kakeru-Suiteを設計。11のPostgreSQLスキーマを持つ統合モノリス、TSOAによるOpenAPI生成、AWS CDKによるIaC、分散トランザクション向けサーガパターンを採用。</li>
+                                    <li>8以上の新規プロジェクトを単独で構築。LifeOS、複数の学校管理システム（RustとNestJS）、デスクトップアプリ、サービス管理ツール、開発者向けユーティリティなどを含む。</li>
+                                    <li>日本語クライアント向けの全QA・UATを担当。LINE LIFFアプリでの直接テスト、決済フローの検証、本番障害のデバッグを実施。</li>
+                                    <li>全プラットフォームの内部ドキュメントとAIエージェント用の指示書を作成。</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <span class="pill-heading">アーキテクチャとパターン</span>
+                                <ul>
+                                    <li>マルチプラットフォーム戦略: Kakeru（13マイクロサービスのNxモノレポ）、MonoCentral／古川美術館（独自プラグインフレームワークを備えたTurborepo）、X-Kakeru-Suite（DDDレイヤーによる統合モノリス）</li>
+                                    <li>独自プラグインフレームワーク（「better-feature」）: クライアント・サーバー・共有の厳格な分離、自動生成の型付きAPIクライアント、Sequelizeアダプタ。全11のフィーチャープラグインがこのパターンに従う。</li>
+                                    <li>デュアルAPIプロトコル: すべてのサービスでts-rest（Zod検証付きREST）とConnectRPC（protobuf付きgRPC）を同時に公開</li>
+                                    <li>イベント駆動処理: SNS/SQS非同期ワークフロー、BullMQジョブキュー（Redis）、DLQリトライ処理、冪等なWebhook処理</li>
+                                    <li>マルチデータベース戦略: サービス単位のPrismaスキーマ（マイクロサービス）、ドメイン単位スキーマによる共有スキーマ（モノリス）、MySQLワークロード向けSequelize</li>
+                                    <li>決済: Stripe、Square、Veritrans連携と冪等なWebhook検証。本番での金融上の不一致はゼロ。</li>
+                                    <li>認証: JWT + ロールベースアクセス + LINE OAuth（LIFFベアラートークン） + セッションベースの管理者認証</li>
+                                    <li>デプロイ: ECSロールアウト、EC2でのPM2プロセス管理、Traefikイングレスを備えたK3s Kubernetes</li>
+                                    <li>自己回復: SentryからChatworkへのエラー中継（HMAC検証付きBun/TypeScript）、Prometheusメトリクス、Winstonロギング</li>
+                                </ul>
+                            </div>
+                        </article>
+
+                        <article class="role">
+                            <div>
+                                <h3>シニアソフトウェアエンジニア・Magic Factory Tech Pvt Ltd（StreamFT）</h3>
+                                <h4>2023年4月〜2023年7月（契約）</h4>
+                            </div>
+                            <p class="tagline">QuickBooks同期プラットフォームを3か月で設計・納品し、手作業の財務照合時間を約60%削減。</p>
+                            <ul>
+                                <li>AWSネイティブマイクロサービス: Lambda、SQS/SNS非同期パイプライン、Protobufペイロード最適化</li>
+                                <li>デュアルデータベース: MongoDB（一時ステージング）+ PostgreSQL（システムオブレコード）</li>
+                                <li>QuickBooksセキュリティ準拠のためのOAuthトークンライフサイクル管理（リフレッシュ・ローテーション）</li>
+                                <li>20秒ポーリング + デルタ照合によるニアリアルタイム同期SLAの達成</li>
+                                <li>シリアライゼーション、リトライ、冪等性、エラーハンドリングパターンについてエンジニアを指導</li>
+                            </ul>
+                        </article>
+
+                        <article class="role">
+                            <div>
+                                <h3>シニアフルスタックデベロッパー・JoulestoWatts（SONY）</h3>
+                                <h4>2022年4月〜2023年2月（契約）</h4>
+                            </div>
+                            <p class="tagline">ポリシー強制、パフォーマンスチューニング、安全なデリバリーを備えたマイクロサービスプラットフォーム。</p>
+                            <ul>
+                                <li>最小権限境界を強制するOPA認可ポリシー + Oktaアイデンティティフロー</li>
+                                <li>Node.js CPUプロファイリング（フレームグラフ、ホットパス解析）とeBPFパフォーマンスプロファイリング + Istioルーティングチューニング（クリティカルパスのレイテンシ削減）</li>
+                                <li>GitHub Actions CI/CDパイプライン（lint、テストマトリクス、セキュリティスキャン、デプロイゲート）</li>
+                                <li>リグレッション障害を減らす統合テスト + E2Eテスト</li>
+                                <li>コードレビューの主導とアーキテクチャドキュメントの作成</li>
+                                <li>技術スタック: Node.js、TypeScript、OPA、Istio、eBPF、Azure Key Vault、Jest、MySQL、Docker</li>
+                            </ul>
+                        </article>
+
+                        <article class="role">
+                            <div>
+                                <h3>シニアソフトウェアエンジニア・Easy Management Pte Ltd（契約先: GajiGesa）</h3>
+                                <h4>2022年1月〜2022年3月</h4>
+                            </div>
+                            <p class="tagline">金融ウェルネスプラットフォームのバックエンド開発。</p>
+                            <ul>
+                                <li>NestJS + PostgreSQLドメインAPI（TypeORM、Nxモノレポ）</li>
+                                <li>コンテナ化ビルドによるCI/CD自動化</li>
+                                <li>ユニットテスト + 統合テスト（Mocha）によるカバレッジ向上</li>
+                                <li>レイヤードアーキテクチャとDTOバリデーションについてジュニアを指導</li>
+                            </ul>
+                        </article>
+
+                        <article class="role">
+                            <div>
+                                <h3>シニアテクニカルメンバー・Ratna Global Tech（契約先: eBay via AWF）</h3>
+                                <h4>2021年10月〜2021年12月</h4>
+                            </div>
+                            <p class="tagline">トランザクションワークフローを支えるTypeScriptマイクロサービス。</p>
+                            <ul>
+                                <li>ユニットテストスイート（正常系・異常系）によるマージ前欠陥検出率の向上</li>
+                                <li>統合ミスアライメントを減らすSwagger 3.0 YAML API契約</li>
+                                <li>チーム計画とデリバリーサイクル支援</li>
+                            </ul>
+                        </article>
+
+                        <article class="role">
+                            <div>
+                                <h3>シニアフルスタックデベロッパー・Lenergy Mobility</h3>
+                                <h4>2019年3月〜2021年9月</h4>
+                            </div>
+                            <p class="tagline">決済連携を備えたエンタープライズ向けNode.js/NestJSプラットフォーム。</p>
+                            <ul>
+                                <li>マイクロサービスの構築とスケーリング（TypeScript、NestJS、MySQL、TypeORM、Nxパッケージ）</li>
+                                <li>5つの決済ゲートウェイ統合、取引完了率+20%向上</li>
+                                <li>チームリーダー: メンタリング、コード品質基準、APIドキュメント（Swagger）</li>
+                                <li>レガシーLMSバックエンドモジュールのNestJSアーキテクチャへのリファクタリング</li>
+                            </ul>
+                        </article>
+
+                        <article class="role">
+                            <div>
+                                <h3>Linuxシステム管理者・VHR Solutions（契約先: Tata Communications）</h3>
+                                <h4>2018年9月〜2019年3月</h4>
+                            </div>
+                            <p class="tagline">300台以上のサーバーからなるグローバルCDNインフラを管理。</p>
+                            <ul>
+                                <li>3層CAチェーン管理: ルート、中間、サーバー証明書とフリート全体のトラストチェーン検証</li>
+                                <li>NGINXリバースプロキシ設定とロードバランサー管理</li>
+                                <li>TLS/SSL証明書ライフサイクル管理と更新自動化</li>
+                                <li>マルチビットレートストリーミング（Wowza）とNode.jsログ取り込みパイプライン</li>
+                                <li>レポート自動化とグローバル同期・パージワークフロー</li>
+                                <li>HTTPヘッダー強化によるセキュリティ態勢の向上</li>
+                            </ul>
+                        </article>
+
+                        <article class="role">
+                            <div>
+                                <h3>ウェブサイトデベロッパー・Scholarnex Edutech</h3>
+                                <h4>2017年2月〜2018年9月</h4>
+                            </div>
+                            <ul>
+                                <li>Node.js LMSバックエンド開発とJS &amp; シェルスクリプトによるワークフロー自動化</li>
+                                <li>スクレイピングベースのコンテンツ取り込みと社内自動化ツール</li>
+                            </ul>
+                        </article>
+
+                        <article class="role">
+                            <div>
+                                <h3>ウェブサイトデベロッパー・Infinite Knowledge Digital LLC</h3>
+                                <h4>2016年1月〜2017年2月</h4>
+                            </div>
+                            <p class="tagline">フルライフサイクルのWebデリバリー（HTML/PUGテンプレート、Node API保守）。</p>
+                        </article>
+
+                        <article class="role">
+                            <div>
+                                <h3>独立フリーランス</h3>
+                                <h4>2014年〜2016年</h4>
+                            </div>
+                            <ul>
+                                <li>広告エンゲージメントとクライアント収益を最適化するad-tech JavaScriptシステムの構築</li>
+                                <li>WordPressサイト開発、ホスティング、SEOマネタイズ</li>
+                                <li>AdSense最適化によるBloggerコンテンツサイト</li>
+                            </ul>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="fade-section">
+                <div class="section-card">
+                    <h2 class="section-title">主要プロジェクト</h2>
+                    <div class="timeline">
+                        <article class="role">
+                            <div><h3>LifeOS: フルスタック個人生活管理システム（2025年〜2026年、進行中）</h3></div>
+                            <p class="tagline">
+                                オフラインファーストPWA、暗号化シークレットボールト、マルチテナントスペースを備えたセルフホスト型の総合生活管理プラットフォーム。19のNestJSモジュール、Svelteフロントエンド、Prisma + PostgreSQL、AES-256-GCM暗号化、IndexedDBオフライン変更キュー。サイドバーにDeepSeek AIエージェントを統合し、TODO、目標、習慣、在庫、場所をSSEストリーミングと可視化されたツール呼び出しパネルで自然言語CRUD操作。
+                            </p>
+                        </article>
+
+                        <article class="role">
+                            <div><h3>学校管理システム（2025年〜2026年）</h3></div>
+                            <p class="tagline">RustとNestJSにまたがる3つの学校管理プロジェクト。NDA保護の本番コードからSaaS仕様まで。</p>
+                            <ul>
+                                <li><strong>Rust（Axum + SeaORM + Svelte）:</strong> 階層権限付きのロールベース認証。Rust enumによるロール階層、自動シード付きデータベースマイグレーション。NDA対象。</li>
+                                <li><strong>NestJS + Prisma + Svelte本番プラットフォーム:</strong> 幼稚園から高校まで（NurseryからClass 12まで）の完全K-12プラットフォーム。出席、試験、費用管理、時間割、通知機能。19のデータベースモデル、13のフィーチャーモジュール、Dockerマルチステージビルド、Playwright E2Eテスト、Argon2パスワードハッシュ、Redisキャッシュ、インドの進路区分（PCM、PCB、Commerce、Humanities）。</li>
+                                <li><strong>SaaS仕様とアーキテクチャ:</strong> インドの学校向けマルチテナントSaaS提案。Rust/Actix-web、SvelteKit、Razorpay/Paytm、3階層（プラットフォーム → 代理店 → 学校）、行レベルセキュリティ、自動コミッション分割。完全な事業提案書と技術仕様を作成。</li>
+                            </ul>
+                        </article>
+
+                        <article class="role">
+                            <div>
+                                <h3>
+                                    <a href="https://github.com/SinghChinmay/sortr-image-organizer-desktop" target="_blank" rel="noopener" class="rainbow-link">SORTR</a>
+                                    : 画像整理デスクトップアプリ（2026年）: オープンソース
+                                </h3>
+                            </div>
+                            <p class="tagline">
+                                キーボード駆動のデスクトップ画像整理ツール（Python/Flask + バニラJS、PyInstallerパッケージング）。非破壊ステージング、18の画像フォーマット、衝突回避の移動、クロスプラットフォームのスタンドアロンバイナリ。MITライセンス。
+                            </p>
+                        </article>
+
+                        <article class="role">
+                            <div><h3>カスタムエンタープライズサーバーインフラ（2024年〜2025年）</h3></div>
+                            <p class="tagline">
+                                128GB RAM、6TB NVMe RAID 0、マルチWAN負荷分散、IISマルチドメインホスティング、DDoS対策、ネットワークセグメンテーションを備えたWindows Server 2022のデプロイをインドのクライアント向けに構築。
+                            </p>
+                        </article>
+
+                        <article class="role">
+                            <div><h3>QA／Node.jsエンジニア面接・Zelevate Platform（2024年〜現在、パートタイム）</h3></div>
+                            <p class="tagline">
+                                シニアQAとNode.jsエンジニアの面接を契約ベースで実施。Selenium/PyTest自動化、Python/Node.jsプログラミング、APIテスト、システム設計の観点で候補者を評価。自動マークダウンレポート生成付きのインタラクティブなHTML/JSスコアリングダッシュボードを構築。採用パイプライン改善のための9項目の社内提案を作成。16回以上の面接を完了。
+                            </p>
+                        </article>
+
+                        <article class="role">
+                            <div>
+                                <h3>
+                                    <a href="https://github.com/SinghChinmay/Process-Control-Panel" target="_blank" rel="noopener" class="rainbow-link">Process Control Panel</a>
+                                    : サービス管理インターフェース（2024年）
+                                </h3>
+                            </div>
+                            <p class="tagline">
+                                リアルタイムプロセス監視、クロスプラットフォームのプロセス管理、名前付き設定プロファイル、サイバーパンク風バニラJSフロントエンドを備えたWebベースのサービス管理ツール。Bun + Express + Zodで構築。
+                            </p>
+                        </article>
+
+                        <article class="role">
+                            <div>
+                                <h3>
+                                    <a href="https://github.com/SinghChinmay/browser-efficiency-disabler" target="_blank" rel="noopener" class="rainbow-link">Browser Efficiency Disabler</a>
+                                    （2026年）
+                                </h3>
+                            </div>
+                            <p class="tagline">
+                                Chrome、Edge、Brave、VivaldiのEfficiency Modeを、数秒ごとにプロセス優先度をIdleからNormalに戻すことで自動的に無効化するPowerShellベースのWindowsサービス。ブラウザの速度低下やカクつきを防止。
+                            </p>
+                        </article>
+
+                        <article class="role">
+                            <div><h3>個人用Minecraftサーバー（2026年）</h3></div>
+                            <p class="tagline">ngrok TCPトンネリングとZeroTierを備えたDocker化Paperサーバー。ローカル + GitHubクラウドバックアップの自動化、Sparkプロファイリング。</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="fade-section">
+                <div class="section-card">
+                    <h2 class="section-title">学歴</h2>
+                    <article class="role">
+                        <div>
+                            <h3>コンピュータサイエンス学士（B.Tech）・Sharda大学</h3>
+                            <h4>2014年〜2018年</h4>
+                        </div>
+                        <ul>
+                            <li>
+                                卒業研究: 「倫理的ハッキング（全自動Aircrack-ng）」。WPA/WPS攻撃の自動化、GPUアクセラレーションによるハッシュクラッキング、deauthベースのハンドシェイク取得を備えた自動WiFiペネトレーションテストスイート。大学インフラで実証（文書化されたセキュリティ弱点は報告済み）。
+                            </li>
+                            <li>
+                                実践的なネットワークセキュリティ研究: 大学ネットワーク全体（10,000以上のエンドポイント）をマッピングし、CCTVシステム、Ciscoスイッチ、生体認証デバイス、プリンタを特定。すべてデフォルト認証情報で稼働していた。Angry IP Scanner、独自シェルスクリプト、Kali Linuxツールチェーンを使用。
+                            </li>
+                        </ul>
+                    </article>
+                </div>
+            </section>
+
+            <section class="fade-section">
+                <div class="section-card">
+                    <h2 class="section-title">プロジェクト・ハイライト</h2>
+                    <ul>
+                        <li><strong>Kakeru Platform:</strong> 13のマイクロサービス、デュアルREST/gRPC、Nxモノレポを備えたLINE統合型SaaS</li>
+                        <li><strong>MonoCentral（古川美術館）:</strong> 美術館会員プラットフォーム、独自プラグインフレームワーク、K3s Kubernetes</li>
+                        <li><strong>X-Kakeru-Suite:</strong> DDD、11のPostgreSQLスキーマ、TSOA、AWS CDKによる統合モノリス</li>
+                        <li><strong>StarCat:</strong> LINE統合、Veritrans決済、QRチェックインを備えたシネマロイヤルティプラットフォーム</li>
+                        <li><strong>イベントキャンペーン予約:</strong> アンケート、抽選、スタンプラリーを備えたLINEイベントシステム</li>
+                        <li><strong>QuickBooks同期:</strong> Protobuf + OAuthトークン自動化によるマイクロサービスオーケストレーション</li>
+                        <li><strong>SONYでのeBPF:</strong> サービスレイテンシを削減するsyscallホットスポット特定のためのパフォーマンスプロファイリング</li>
+                        <li><strong>寄付管理システム:</strong> Laravel/Reactマルチゲートウェイ寄付プラットフォーム</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="fade-section">
+                <div class="section-card">
+                    <h2 class="section-title">仕事への哲学</h2>
+                    <p>
+                        私は生涯ずっとコンピュータに囲まれて生きてきた。プログラミングとは知っていることではなく、解き明かせることだ。動くものを構築し、他の人が理解できるように文書化し、夜中の3時に何かが壊れたら全責任を負う。引き継ぎなし、言い訳なし。
+                    </p>
+                    <blockquote>「この世界に生まれた人間は、一人ではない。」 ソール（ONE PIECE）</blockquote>
+                </div>
+            </section>
+
+            <section class="fade-section">
+                <div class="section-card">
+                    <h2 class="section-title">関心事</h2>
+                    <p>
+                        学習と教育・新興ランタイム（Bun、Rust）・デスクトップアプリ開発・分散システム・セキュリティ研究とリバースエンジニアリング・コスト最適化・オープンソース・FPSゲーム
+                    </p>
+                </div>
+            </section>
+            </div>
 
             <hr class="sparkle-line" />
 
             <footer>
                 <div class="footer-cat">ฅ^•ﻌ•^ฅ</div>
-                <p>Updated on: 2026-07-13 · Crafted with kawaii code & extra sparkles ☆</p>
+                <p class="lang lang-en">Updated on: 2026-07-13 · Crafted with kawaii code & extra sparkles ☆</p>
+                <p class="lang lang-ja" hidden>最終更新: 2026-07-13・かわいいコードとキラキラのスパークルで作られました ☆</p>
             </footer>
         </main>
     </body>

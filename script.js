@@ -52,6 +52,65 @@
 })();
 
 // ============================================================
+// 1.5 LANGUAGE TOGGLE (EN/日本語)
+// ============================================================
+(function () {
+    const storageKey = 'kawaii-resume-lang';
+    const buttons = document.querySelectorAll('.lang-btn');
+
+    const applyLang = (lang, persist = false, force = false) => {
+        const containers = document.querySelectorAll('.lang');
+        containers.forEach((container) => {
+            const isJa = container.classList.contains('lang-ja');
+            container.hidden = !(lang === 'ja' ? isJa : !isJa);
+        });
+        buttons.forEach((btn) => btn.classList.toggle('active', btn.dataset.lang === lang));
+        document.documentElement.lang = lang;
+        if (force) {
+            document.querySelectorAll('.lang:not([hidden]) .fade-section').forEach((section) => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    section.classList.add('visible');
+                }
+            });
+        }
+        if (persist) {
+            try {
+                localStorage.setItem(storageKey, lang);
+            } catch (error) {
+                console.warn('Unable to persist language:', error);
+            }
+        }
+    };
+
+    let storedLang = null;
+    try {
+        storedLang = localStorage.getItem(storageKey);
+    } catch (error) {
+        storedLang = null;
+    }
+
+    // If the visitor hasn't chosen a language yet, default to Japanese
+    // for visitors in the Japan timezone (Asia/Tokyo / JST), English otherwise.
+    const detectLang = () => {
+        if (storedLang === 'ja' || storedLang === 'en') return storedLang;
+        try {
+            const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+            if (tz === 'Asia/Tokyo' || tz === 'JST') return 'ja';
+        } catch (error) {
+            // Timezone detection unavailable
+        }
+        return 'en';
+    };
+
+    applyLang(detectLang());
+
+    buttons.forEach((btn) => {
+        btn.addEventListener('click', () => applyLang(btn.dataset.lang, true, true));
+    });
+})();
+
+// ============================================================
 // 2. AMBIENT TOGGLE SOUND (Web Audio API)
 // ============================================================
 function playThemeChime(theme) {
@@ -381,29 +440,33 @@ function playThemeChime(theme) {
 //    By default, collapse all except the first card.
 // ============================================================
 (function () {
-    const cards = document.querySelectorAll('.section-card');
-    cards.forEach((card, idx) => {
-        const h2 = card.querySelector('h2.section-title');
-        if (!h2) return;
+    const containers = document.querySelectorAll('.lang');
+    const targets = containers.length ? Array.from(containers) : [document];
+    targets.forEach((container) => {
+        const cards = container.querySelectorAll('.section-card');
+        cards.forEach((card, idx) => {
+            const h2 = card.querySelector('h2.section-title');
+            if (!h2) return;
 
-        // Wrap everything after the h2 into a .section-body
-        const body = document.createElement('div');
-        body.className = 'section-body';
-        let next = h2.nextElementSibling;
-        while (next) {
-            const toMove = next;
-            next = next.nextElementSibling;
-            body.appendChild(toMove);
-        }
-        card.appendChild(body);
+            // Wrap everything after the h2 into a .section-body
+            const body = document.createElement('div');
+            body.className = 'section-body';
+            let next = h2.nextElementSibling;
+            while (next) {
+                const toMove = next;
+                next = next.nextElementSibling;
+                body.appendChild(toMove);
+            }
+            card.appendChild(body);
 
-        // Collapse all except the first section
-        if (idx > 0) {
-            card.classList.add('collapsed');
-        }
+            // Collapse all except the first section in each language
+            if (idx > 0) {
+                card.classList.add('collapsed');
+            }
 
-        h2.addEventListener('click', () => {
-            card.classList.toggle('collapsed');
+            h2.addEventListener('click', () => {
+                card.classList.toggle('collapsed');
+            });
         });
     });
 })();
